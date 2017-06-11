@@ -189,7 +189,7 @@
         },
         /**
          * The number that indicates the minimum value. It is used to compute
-         * `_min`. If `min` is not a number, `_min` falls back
+         * `_min`. If `min` is not a relative integer, `_min` falls back
          * to 0.
          */
         min: {
@@ -198,7 +198,8 @@
         /**
         * The number that indicates the maximum value. It is used to compute
         * `_max`. If `max` is not a number, `_max` falls back
-        * to Number.POSITIVE_INFINITY.
+        * to Number.POSITIVE_INFINITY. If `max` is inferior to `_min`, `_max`
+        * falls back to `_min`.
          */
         max: {
           type: Number
@@ -260,7 +261,7 @@
          */
         _max: {
           type: Number,
-          computed: '_compute_max(max)',
+          computed: '_compute_max(max, _min)',
           readOnly: true,
           value: Number.POSITIVE_INFINITY
         },
@@ -313,9 +314,11 @@
         return isNaN(min) || min < 0 ? 0 : min;
       },
 
-      _compute_max: function(max) {
+      _compute_max: function(max, _min) {
         max = parseInt(max);
-        return isNaN(max) ?  Number.POSITIVE_INFINITY : max;
+        return isNaN(max) ?
+          Number.POSITIVE_INFINITY :
+          ( max < _min ? _min : max);
       },
 
       _rangeValue: function(value, fallbackValue, _min, _max) {
