@@ -10,18 +10,18 @@ A Material Design input field for relative integer with step up/down buttons (Po
   <template>
     <link rel="import" href="paper-relative-integer-input.html">
     <link rel="import" href="../iron-icons/iron-icons.html">
+    <style>
+      paper-relative-integer-input {
+        max-width: 140px;
+        margin: auto;
+      }
+    </style>
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
 ```
 -->
 ```html
-<style>
-  paper-relative-integer-input {
-    max-width: 140px;
-    margin: auto;
-  }
-</style>
 <paper-relative-integer-input
   label="Quantity"
   min="1"
