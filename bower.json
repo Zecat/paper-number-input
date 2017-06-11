@@ -4,7 +4,7 @@
   "description": "A Material Design input field for relative integer with step up/down buttons (Polymer 1.9 - 2.x)",
   "main": "paper-relative-integer-input.html",
   "authors": [
-    "Zecat"
+    "Zecat <jullienfelix@gmail.com>"
   ],
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
     "web-components",
     "polymer",
     "input",
-    "number"
+    "number",
+    "integer"
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#1.9 - 2",
