@@ -1,3 +1,5 @@
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/Zecat/paper-relative-integer-input)
+
 # \<paper-relative-integer-input\>
 
 A Material Design input field for relative integer with step up/down buttons (Polymer 1.9 - 2.x).
