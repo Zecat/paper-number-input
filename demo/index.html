@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>paper-relative-integer-input demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../paper-input/paper-input.html">
+    <link rel="import" href="../../iron-flex-layout/iron-flex-layout.html">
+    <link rel="import" href="../../paper-checkbox/paper-checkbox.html">
+    <link rel="import" href="../paper-relative-integer-input.html">
+  </head>
+
+  <body>
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+
+    <div class="vertical-section-container centered">
+
+      <demo-snippet>
+        <template>
+
+          <dom-bind id="scope">
+            <template>
+
+              <style is="custom-style">
+                paper-relative-integer-input {
+                  max-width: 150px;
+                  margin: auto;
+                }
+              </style>
+
+              <paper-input
+                label="Label"
+                value="{{label}}"
+              ></paper-input>
+
+              <paper-input
+                type="number"
+                label="min"
+                value="{{min}}"
+              ></paper-input>
+
+              <paper-input
+                type="number"
+                label="max"
+                value="{{max}}"
+              ></paper-input>
+
+              <paper-input
+                type="number"
+                label="Value"
+                value="{{value}}"
+              ></paper-input>
+
+              <paper-input
+                type="number"
+                label="Step"
+                value="{{step}}"
+              ></paper-input>
+
+              <paper-input
+                type="number"
+                label="Fallback value"
+                value="{{fallbackValue}}"
+              ></paper-input>
+
+              <paper-checkbox
+                checked="{{disabled}}"
+              >Disabled</paper-checkbox>
+
+              <paper-checkbox
+                checked="{{alwaysLabelFloat}}"
+              >Always float label</paper-checkbox>
+
+              <paper-relative-integer-input
+                always-label-float="{{alwaysLabelFloat}}"
+                label="[[label]]"
+                min="[[min]]"
+                max="[[max]]"
+                value="{{value}}"
+                disabled="[[disabled]]"
+                step="{{step}}"
+                fallback-value="[[fallbackValue]]"
+              >
+                <!--
+                  <div slot="prefix"></div>
+                  <div slot="suffix"></div>
+                -->
+              </paper-relative-integer-input>
+
+              <script>
+                let scope = document.getElementById('scope');
+                scope.label = 'Relative integer';
+                scope.min = -10;
+                scope.fallbackValue = 0;
+                scope.max = 10;
+              </script>
+
+            </template>
+          </dom-bind>
+
+        </template>
+      </demo-snippet>
+
+    </div>
+
+  </body>
+</html>

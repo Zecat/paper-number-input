@@ -1,0 +1,354 @@
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-styles/color.html">
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`paper-relative-integer-input`
+
+@demo demo/paper-relative-integer-input.html
+-->
+
+<dom-module id="paper-relative-integer-input">
+  <template>
+    <style>
+      :host {
+        display: block;
+        box-sizing: border-box;
+      }
+      #input {
+        text-align: center;
+        --paper-input-container-input: {
+          -moz-appearance: textfield;
+          appearance: textfield;
+        };
+        --paper-input-container-input-webkit-spinner: {
+          -webkit-appearance: none;
+          appearance: none;
+          margin: 0;
+        };
+        @apply --paper-relative-integer-input-paper-input;
+      }
+      .spinner {
+        margin: 0;
+        min-width: auto;
+        --paper-button-disabled: {
+          background: transparent;
+        };
+        @apply --paper-relative-integer-input-spinner;
+      }
+      .spinner:hover {
+        background: rgba(0, 0, 0, 0.1);
+        @apply --paper-relative-integer-input-spinner-hover;
+      }
+    </style>
+
+    <paper-input
+        id="input"
+        type="number"
+        value="{{value}}"
+        label="[[label]]"
+        no-label-float="[[noLabelFloat]]"
+        always-label-float="[[alwaysLabelFloat]]"
+        allowed-pattern="[0-9]"
+        aria-labelledby$="[[_ariaLabelledBy]]"
+        aria-describedby$="[[_ariaDescribedBy]]"
+        disabled$="[[disabled]]"
+        title$="[[title]]"
+        invalid="{{invalid}}"
+        validator="[[validator]]"
+        required$="[[required]]"
+        autofocus$="[[autofocus]]"
+        min$="[[validatedMin]]"
+        max$="[[validatedMax]]"
+        step$="[[validatedStep]]"
+        name$="[[name]]"
+        placeholder$="[[placeholder]]"
+        readonly$="[[readonly]]"
+        tabindex$="[[tabIndex]]"
+        invalid="{{invalid}}"
+        error-message="{{errorMessage}}"
+        required="{{required}}"
+        auto-validate="[[autoValidate]]"
+        validator="[[validator]]">
+
+      <paper-button
+          tabindex="-1"
+          class="spinner"
+          slot="prefix"
+          prefix
+          on-tap="stepDown"
+          disabled="[[_computeStepDownButtonDisabled(value, validatedMin, disabled)]]">
+        <iron-icon icon="remove"></iron-icon>
+      </paper-button>
+
+      <slot name="prefix" slot="prefix"></slot>
+      <slot name="suffix" slot="suffix"></slot>
+
+      <paper-button
+          tabindex="-1"
+          class="spinner"
+          slot="suffix"
+          suffix
+          on-tap="stepUp"
+          disabled="[[_computeStepUpButtonDisabled(value, validatedMax, disabled)]]">
+        <iron-icon icon="add"></iron-icon>
+      </paper-button>
+
+    </paper-input>
+
+  </template>
+  <script>
+
+    Polymer({
+
+      is: 'paper-relative-integer-input',
+
+      properties: {
+        /**
+        * The tabindex for this input.
+        */
+        tabIndex: {
+          type: Number
+        },
+        /**
+         * The label for this input.
+         */
+        label: {
+          type: String
+        },
+        /**
+         * The value for this input.
+         */
+        value: {
+          type: Number,
+          notify: true
+        },
+        /**
+         * Set to true to disable this input.
+         */
+        disabled: {
+          type: Boolean,
+          value: false
+        },
+        /**
+         * Returns true if the value is invalid.
+         *
+         * If `autoValidate` is true, the `invalid` attribute is managed automatically,
+         * which can clobber attempts to manage it manually.
+         */
+        invalid: {
+          type: Boolean,
+          value: false,
+          notify: true
+        },
+        /**
+         * Set to true to mark the input as required.
+         */
+        required: {
+          type: Boolean,
+          value: false
+        },
+        /**
+         * The error message to display when the input is invalid.
+         */
+        errorMessage: {
+          type: String
+        },
+        /**
+         * Set to true to disable the floating label.
+         */
+        noLabelFloat: {
+          type: Boolean
+        },
+        /**
+         * Set to true to always float the label.
+         */
+        alwaysLabelFloat: {
+          type: Boolean
+        },
+        /**
+         * Set to true to auto-validate the input value.
+         */
+        autoValidate: {
+          type: Boolean,
+          value: false
+        },
+        /**
+         * Name of the validator to use.
+         */
+        validator: {
+          type: String
+        },
+        /**
+         */
+        autofocus: {
+          type: Boolean
+        },
+        /**
+         * The minimum input value used to compute `validatedMin`. If min is not
+         * a number, `validatedMin` will be equals to Number.NEGATIVE_INFINITY.
+         */
+        min: {
+          type: Number
+        },
+        /**
+         * The maximum input value used to compute `validatedMax`. If min is not
+         * a number, `validatedMax` will be equals to Number.POSITIVE_INFINITY.
+         */
+        max: {
+          type: Number
+        },
+        /**
+         * Limits the numeric increments.
+         */
+        step: {
+          type: Number,
+          value: 1,
+          notify: true
+        },
+        /**
+         * The name of this element.
+         */
+        name: {
+          type: String
+        },
+        /**
+         * A placeholder string in addition to the label. If this is set, the label will always float.
+         */
+        placeholder: {
+          type: String
+        },
+        /**
+         *
+         */
+        readonly: {
+          type: Boolean,
+          value: false
+        },
+        /**
+         *
+         */
+        _ariaDescribedBy: {
+          type: String
+        },
+        /**
+         *
+         */
+        _ariaLabelledBy: {
+          type: String
+        },
+        /**
+         *
+         */
+        validatedMin: {
+          type: Number,
+          computed: '_computeValidatedMin(min)',
+          notify: true,
+          readOnly: true,
+          value: 0
+        },
+        /**
+         *
+         */
+        validatedMax: {
+          type: Number,
+          computed: '_computeValidatedMax(max)',
+          notify: true,
+          readOnly: true,
+          value: Number.POSITIVE_INFINITY
+        },
+        validatedStep: {
+          type: Number,
+          computed: '_computeValidatedSted(step)',
+          notify: true
+        },
+        fallbackValue: {
+          type: Number,
+          value: null
+        }
+      },
+
+      observers: [
+        '_rangeValue(value, fallbackValue, validatedMin, validatedMax)'
+      ],
+
+      _computeValidatedSted(step) {
+        step = parseInt(step);
+        return isNaN(step) ? 0 : step;
+      },
+
+      _computeValidatedMin(min) {
+        min = parseInt(min);
+        return isNaN(min) || min < 0 ? 0 : min;
+      },
+
+      _computeValidatedMax(max) {
+        max = parseInt(max);
+        return isNaN(max) ?  Number.POSITIVE_INFINITY : max;
+      },
+
+      _rangeValue(value, fallbackValue, validatedMin, validatedMax) {
+        this.value = isNaN((value = this.toRange(value))) ?
+          this.toRange(fallbackValue) :
+          value;
+      },
+
+      /**
+       * Rectrict the given value between `validatedMin` and `validatedMax`.
+       * @param  {Number} value The value to restrict
+       * @return {Number}       The ranged value or NaN if the input value is
+       *                        not a number.
+       */
+      toRange(value) {
+        return Math.max(this.validatedMin, Math.min(parseInt(value), this.validatedMax));
+      },
+
+      toRangeMax(value) {
+        return Math.min(this.validatedMax, parseInt(value));
+      },
+
+      toRangeMin(value) {
+        return Math.max(this.validatedMin, parseInt(value));
+      },
+
+      /**
+       *
+       */
+      stepUp() {
+        this.value = isNaN(this.value) ?
+          this.toRange(this.validatedStep) :
+          this.toRangeMax(this.value + this.validatedStep);
+      },
+
+      /**
+       *
+       */
+      stepDown() {
+        this.value = isNaN(this.value) ?
+          this.toRange(-this.validatedStep) :
+          this.toRangeMin(this.value - this.validatedStep);
+      },
+
+      add(n) {
+        if (isNaN(n)) n = 0;
+        this.value = isNaN(this.value) ?
+          this.toRange(n) :
+          this.toRange(this.value + n);
+      },
+
+      _computeStepDownButtonDisabled(value, validatedMin, disabled) {
+        return disabled || value <= validatedMin;
+      },
+
+      _computeStepUpButtonDisabled(value, validatedMax, disabled) {
+        return disabled || value >= validatedMax;
+      }
+
+    });
+
+  </script>
+</dom-module>
