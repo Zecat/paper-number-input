@@ -31,6 +31,15 @@
           <dom-bind id="scope">
             <template>
 
+            <!--
+              For icons to appear, you can:
+               - just import the iron-icons/iron-icons.html Polymer element,
+               - create your own icon set and specify `stepDownIcon` and `stepUpIcon` properties according.
+               - import paper-relative-integer-input/paper-relative-integer-input-icons and defined
+                  `stepDownIcon` as 'integer-input:step-down' and `stepUpIcon` as 'integer-input:step-up'
+            -->
+              <link rel="import" href="../../iron-icons/iron-icons.html">
+
               <style is="custom-style">
                 paper-relative-integer-input {
                   max-width: 150px;
@@ -79,7 +88,7 @@
 
               <paper-checkbox
                 checked="{{alwaysLabelFloat}}"
-              >Always float label</paper-checkbox>
+              >Always label float</paper-checkbox>
 
               <paper-relative-integer-input
                 always-label-float="{{alwaysLabelFloat}}"

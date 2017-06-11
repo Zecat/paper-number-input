@@ -2,14 +2,13 @@
 <link rel="import" href="../paper-input/paper-input.html">
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../paper-styles/color.html">
 <link rel="import" href="../polymer/polymer.html">
 
 <!--
 `paper-relative-integer-input`
 
-@demo demo/paper-relative-integer-input.html
+@demo demo
 -->
 
 <dom-module id="paper-relative-integer-input">
@@ -82,7 +81,7 @@
           prefix
           on-tap="stepDown"
           disabled="[[_computeStepDownButtonDisabled(value, validatedMin, disabled)]]">
-        <iron-icon icon="remove"></iron-icon>
+        <iron-icon icon="[[stepDownIcon]]"></iron-icon>
       </paper-button>
 
       <slot name="prefix" slot="prefix"></slot>
@@ -95,7 +94,7 @@
           suffix
           on-tap="stepUp"
           disabled="[[_computeStepUpButtonDisabled(value, validatedMax, disabled)]]">
-        <iron-icon icon="add"></iron-icon>
+        <iron-icon icon="[[stepUpIcon]]"></iron-icon>
       </paper-button>
 
     </paper-input>
@@ -269,7 +268,15 @@
         fallbackValue: {
           type: Number,
           value: null
-        }
+        },
+        stepDownIcon: {
+          type: String,
+          value: 'remove'
+        },
+        stepUpIcon: {
+          type: String,
+          value: 'add'
+        },
       },
 
       observers: [
