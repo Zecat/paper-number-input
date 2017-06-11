@@ -28,14 +28,14 @@
       <demo-snippet>
         <template>
 
-          <dom-bind id="scope">
-            <template>
+          <dom-bind id="v2Scope">
+            <template is="dom-bind" id="v1Scope">
 
             <!--
               For icons to appear, you can:
                - just import the iron-icons/iron-icons.html Polymer element,
                - create your own icon set and specify `stepDownIcon` and `stepUpIcon` properties according.
-               - import paper-relative-integer-input/paper-relative-integer-input-icons and defined
+               - import paper-relative-integer-input/paper-relative-integer-input-icons and define
                   `stepDownIcon` as 'integer-input:step-down' and `stepUpIcon` as 'integer-input:step-up'
             -->
               <link rel="import" href="../../iron-icons/iron-icons.html">
@@ -107,7 +107,9 @@
               </paper-relative-integer-input>
 
               <script>
-                let scope = document.getElementById('scope');
+                let scopeId = Polymer.Element ? 'v2Scope' : 'v1Scope';
+                let scope = document.getElementById(scopeId);
+
                 scope.label = 'Relative integer';
                 scope.min = -10;
                 scope.fallbackValue = 0;
