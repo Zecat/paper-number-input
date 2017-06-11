@@ -107,8 +107,8 @@
               </paper-relative-integer-input>
 
               <script>
-                let scopeId = Polymer.Element ? 'v2Scope' : 'v1Scope';
-                let scope = document.getElementById(scopeId);
+                var scopeId = Polymer.Element ? 'v2Scope' : 'v1Scope';
+                var scope = document.getElementById(scopeId);
 
                 scope.label = 'Relative integer';
                 scope.min = 1;

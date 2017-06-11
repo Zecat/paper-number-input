@@ -283,22 +283,22 @@
         '_rangeValue(value, fallbackValue, validatedMin, validatedMax)'
       ],
 
-      _computeValidatedSted(step) {
+      _computeValidatedSted: function(step) {
         step = parseInt(step);
         return isNaN(step) ? 0 : step;
       },
 
-      _computeValidatedMin(min) {
+      _computeValidatedMin: function(min) {
         min = parseInt(min);
         return isNaN(min) || min < 0 ? 0 : min;
       },
 
-      _computeValidatedMax(max) {
+      _computeValidatedMax: function(max) {
         max = parseInt(max);
         return isNaN(max) ?  Number.POSITIVE_INFINITY : max;
       },
 
-      _rangeValue(value, fallbackValue, validatedMin, validatedMax) {
+      _rangeValue: function(value, fallbackValue, validatedMin, validatedMax) {
         this.value = isNaN((value = this.toRange(value))) ?
           this.toRange(fallbackValue) :
           value;
@@ -310,22 +310,22 @@
        * @return {Number}       The ranged value or NaN if the input value is
        *                        not a number.
        */
-      toRange(value) {
+      toRange: function(value) {
         return Math.max(this.validatedMin, Math.min(parseInt(value), this.validatedMax));
       },
 
-      toRangeMax(value) {
+      toRangeMax: function(value) {
         return Math.min(this.validatedMax, parseInt(value));
       },
 
-      toRangeMin(value) {
+      toRangeMin: function(value) {
         return Math.max(this.validatedMin, parseInt(value));
       },
 
       /**
        *
        */
-      stepUp() {
+      stepUp: function() {
         this.value = isNaN(this.value) ?
           this.toRange(this.validatedStep) :
           this.toRangeMax(this.value + this.validatedStep);
@@ -334,24 +334,24 @@
       /**
        *
        */
-      stepDown() {
+      stepDown: function() {
         this.value = isNaN(this.value) ?
           this.toRange(-this.validatedStep) :
           this.toRangeMin(this.value - this.validatedStep);
       },
 
-      add(n) {
+      add: function(n) {
         if (isNaN(n)) n = 0;
         this.value = isNaN(this.value) ?
           this.toRange(n) :
           this.toRange(this.value + n);
       },
 
-      _computeStepDownButtonDisabled(value, validatedMin, disabled) {
+      _computeStepDownButtonDisabled: function(value, validatedMin, disabled) {
         return disabled || value <= validatedMin;
       },
 
-      _computeStepUpButtonDisabled(value, validatedMax, disabled) {
+      _computeStepUpButtonDisabled: function(value, validatedMax, disabled) {
         return disabled || value >= validatedMax;
       }
 
