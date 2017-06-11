@@ -271,7 +271,7 @@
          */
         _step: {
           type: Number,
-          computed: '_compute_sted(step)',
+          computed: '_compute_step(step)',
           readOnly: true,
           notify: true
         },
@@ -304,7 +304,7 @@
         '_rangeValue(value, fallbackValue, _min, _max)'
       ],
 
-      _compute_sted: function(step) {
+      _compute_step: function(step) {
         step = parseInt(step);
         return isNaN(step) ? 0 : step;
       },
