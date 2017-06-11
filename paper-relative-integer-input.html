@@ -61,9 +61,9 @@
         validator="[[validator]]"
         required$="[[required]]"
         autofocus$="[[autofocus]]"
-        min$="[[validatedMin]]"
-        max$="[[validatedMax]]"
-        step$="[[validatedStep]]"
+        min$="[[_min]]"
+        max$="[[_max]]"
+        step$="[[_step]]"
         name$="[[name]]"
         placeholder$="[[placeholder]]"
         readonly$="[[readonly]]"
@@ -80,7 +80,7 @@
           slot="prefix"
           prefix
           on-tap="stepDown"
-          disabled="[[_computeStepDownButtonDisabled(value, validatedMin, disabled)]]">
+          disabled="[[_computeStepDownButtonDisabled(value, _min, disabled)]]">
         <iron-icon icon="[[stepDownIcon]]"></iron-icon>
       </paper-button>
 
@@ -93,7 +93,7 @@
           slot="suffix"
           suffix
           on-tap="stepUp"
-          disabled="[[_computeStepUpButtonDisabled(value, validatedMax, disabled)]]">
+          disabled="[[_computeStepUpButtonDisabled(value, _max, disabled)]]">
         <iron-icon icon="[[stepUpIcon]]"></iron-icon>
       </paper-button>
 
@@ -120,7 +120,7 @@
           type: String
         },
         /**
-         * The value for this input.
+         * The number that represents the current value.
          */
         value: {
           type: Number,
@@ -188,21 +188,25 @@
           type: Boolean
         },
         /**
-         * The minimum input value used to compute `validatedMin`. If min is not
-         * a number, `validatedMin` will be equals to Number.NEGATIVE_INFINITY.
+         * The number that indicates the minimum value. It is used to compute
+         * `_min`. If `min` is not a number, `_min` falls back
+         * to 0.
          */
         min: {
           type: Number
         },
         /**
-         * The maximum input value used to compute `validatedMax`. If min is not
-         * a number, `validatedMax` will be equals to Number.POSITIVE_INFINITY.
+        * The number that indicates the maximum value. It is used to compute
+        * `_max`. If `max` is not a number, `_max` falls back
+        * to Number.POSITIVE_INFINITY.
          */
         max: {
           type: Number
         },
         /**
-         * Limits the numeric increments.
+         * The number that indicates the value increment granularity for
+         * stepUp and stepDown actions. It is used to compute `_step`.
+         * If `step` is not a number, `_step` falls back to 0.
          */
         step: {
           type: Number,
@@ -222,7 +226,7 @@
           type: String
         },
         /**
-         *
+         * If true, the value can't change due to user input.
          */
         readonly: {
           type: Boolean,
@@ -241,38 +245,54 @@
           type: String
         },
         /**
-         *
-         */
-        validatedMin: {
+        * The minimum value the input have.
+        * Equals to `min` or 0 if `min` is not a number.
+        */
+        _min: {
           type: Number,
-          computed: '_computeValidatedMin(min)',
-          notify: true,
+          computed: '_compute_min(min)',
           readOnly: true,
           value: 0
         },
         /**
-         *
+         * The maximum value the input have.
+         * Equals to `max` or Number.POSITIVE_INFINITY if `max` is not a number.
          */
-        validatedMax: {
+        _max: {
           type: Number,
-          computed: '_computeValidatedMax(max)',
-          notify: true,
+          computed: '_compute_max(max)',
           readOnly: true,
           value: Number.POSITIVE_INFINITY
         },
-        validatedStep: {
+        /**
+         * The value increment granularity for stepUp and stepDown actions
+         * Equals to `step` or 0 if `step` is not a number.
+         */
+        _step: {
           type: Number,
-          computed: '_computeValidatedSted(step)',
+          computed: '_compute_sted(step)',
+          readOnly: true,
           notify: true
         },
+        /**
+         * Default fallback when value is not a number.
+         */
         fallbackValue: {
           type: Number,
           value: null
         },
+        /**
+         * The icon key for the step down button. You will need to import an
+         * icon set for the icon to appear.
+         */
         stepDownIcon: {
           type: String,
           value: 'remove'
         },
+        /**
+        * The icon key for the step up button. You will need to import an
+        * icon set for the icon to appear.
+        */
         stepUpIcon: {
           type: String,
           value: 'add'
@@ -280,46 +300,46 @@
       },
 
       observers: [
-        '_rangeValue(value, fallbackValue, validatedMin, validatedMax)'
+        '_rangeValue(value, fallbackValue, _min, _max)'
       ],
 
-      _computeValidatedSted: function(step) {
+      _compute_sted: function(step) {
         step = parseInt(step);
         return isNaN(step) ? 0 : step;
       },
 
-      _computeValidatedMin: function(min) {
+      _compute_min: function(min) {
         min = parseInt(min);
         return isNaN(min) || min < 0 ? 0 : min;
       },
 
-      _computeValidatedMax: function(max) {
+      _compute_max: function(max) {
         max = parseInt(max);
         return isNaN(max) ?  Number.POSITIVE_INFINITY : max;
       },
 
-      _rangeValue: function(value, fallbackValue, validatedMin, validatedMax) {
+      _rangeValue: function(value, fallbackValue, _min, _max) {
         this.value = isNaN((value = this.toRange(value))) ?
           this.toRange(fallbackValue) :
           value;
       },
 
       /**
-       * Rectrict the given value between `validatedMin` and `validatedMax`.
+       * Rectrict the given value between `_min` and `_max`.
        * @param  {Number} value The value to restrict
        * @return {Number}       The ranged value or NaN if the input value is
        *                        not a number.
        */
       toRange: function(value) {
-        return Math.max(this.validatedMin, Math.min(parseInt(value), this.validatedMax));
+        return Math.max(this._min, Math.min(parseInt(value), this._max));
       },
 
       toRangeMax: function(value) {
-        return Math.min(this.validatedMax, parseInt(value));
+        return Math.min(this._max, parseInt(value));
       },
 
       toRangeMin: function(value) {
-        return Math.max(this.validatedMin, parseInt(value));
+        return Math.max(this._min, parseInt(value));
       },
 
       /**
@@ -327,8 +347,8 @@
        */
       stepUp: function() {
         this.value = isNaN(this.value) ?
-          this.toRange(this.validatedStep) :
-          this.toRangeMax(this.value + this.validatedStep);
+          this.toRange(this._step) :
+          this.toRangeMax(this.value + this._step);
       },
 
       /**
@@ -336,8 +356,8 @@
        */
       stepDown: function() {
         this.value = isNaN(this.value) ?
-          this.toRange(-this.validatedStep) :
-          this.toRangeMin(this.value - this.validatedStep);
+          this.toRange(-this._step) :
+          this.toRangeMin(this.value - this._step);
       },
 
       add: function(n) {
@@ -347,12 +367,12 @@
           this.toRange(this.value + n);
       },
 
-      _computeStepDownButtonDisabled: function(value, validatedMin, disabled) {
-        return disabled || value <= validatedMin;
+      _computeStepDownButtonDisabled: function(value, _min, disabled) {
+        return disabled || value <= _min;
       },
 
-      _computeStepUpButtonDisabled: function(value, validatedMax, disabled) {
-        return disabled || value >= validatedMax;
+      _computeStepUpButtonDisabled: function(value, _max, disabled) {
+        return disabled || value >= _max;
       }
 
     });
