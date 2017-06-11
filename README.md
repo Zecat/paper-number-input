@@ -1,21 +1,45 @@
 # \<paper-relative-integer-input\>
 
-A Material Design input for number (Polymer 1.9 - 2.x)
+A Material Design input field for relative integer with step up/down buttons (Polymer 1.9 - 2.x).
 
-## Install the Polymer-CLI
-
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
-
-## Viewing Your Element
-
+<!--
 ```
-$ polymer serve
+<custom-element-demo>
+  <template>
+    <link rel="import" href="paper-relative-integer-input.html">
+    <link rel="import" href="../iron-icons/iron-icons.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<style>
+  paper-relative-integer-input {
+    max-width: 140px;
+    margin: auto;
+  }
+</style>
+<paper-relative-integer-input
+  label="Quantity"
+  min="1"
+  max="12"
+  value="6"
+  step="2"
+  fallback-value="1"
+><paper-relative-integer-input>
 ```
 
-## Running Tests
+## Installation
 
-```
-$ polymer test
+```bash
+  bower install -S Zecat/paper-relative-integer-input
 ```
 
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+## Usage
+
+For icons to appear, you can either:
+
+- just import the iron-icons/iron-icons.html Polymer element - it is a dependency of this element but not imported by default
+- create your own icon set and specify `stepDownIcon` and `stepUpIcon` properties according
+- import paper-relative-integer-input/paper-relative-integer-input-icons and define `stepDownIcon` as 'integer-input:step-down' and `stepUpIcon` as 'integer-input:step-up'
