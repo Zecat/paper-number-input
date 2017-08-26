@@ -87,11 +87,11 @@
               >Disabled</paper-checkbox>
 
               <paper-checkbox
-                checked="{{alwaysLabelFloat}}"
+                checked="{{alwaysFloatLabel}}"
               >Always label float</paper-checkbox>
 
               <paper-relative-integer-input
-                always-label-float="{{alwaysLabelFloat}}"
+                always-float-label="{{alwaysFloatLabel}}"
                 label="[[label]]"
                 min="[[min]]"
                 max="[[max]]"
@@ -115,7 +115,7 @@
                 scope.max = 10;
                 scope.value = 5;
                 scope.fallbackValue = 0;
-                scope.alwaysLabelFloat = true;
+                scope.alwaysFloatLabel = true;
               </script>
 
             </template>
