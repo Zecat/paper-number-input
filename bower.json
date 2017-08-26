@@ -1,6 +1,6 @@
 {
   "name": "paper-relative-integer-input",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A Material Design input field for relative integer with step up/down buttons (Polymer 1.9 - 2.x)",
   "main": "paper-relative-integer-input.html",
   "authors": [
