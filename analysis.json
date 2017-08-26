@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`paper-relative-integer-input`",
+      "description": "",
       "summary": "",
       "path": "paper-relative-integer-input.html",
       "properties": [
@@ -804,7 +804,7 @@
       "demos": [
         {
           "url": "demo",
-          "description": ""
+          "description": "Sandbox snippet"
         }
       ],
       "metadata": {},
@@ -1189,11 +1189,11 @@
           "range": {
             "file": "paper-relative-integer-input.html",
             "start": {
-              "line": 86,
+              "line": 80,
               "column": 6
             },
             "end": {
-              "line": 86,
+              "line": 80,
               "column": 47
             }
           }
@@ -1204,11 +1204,11 @@
           "range": {
             "file": "paper-relative-integer-input.html",
             "start": {
-              "line": 87,
+              "line": 81,
               "column": 6
             },
             "end": {
-              "line": 87,
+              "line": 81,
               "column": 47
             }
           }
