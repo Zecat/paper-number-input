@@ -46,7 +46,6 @@
         label="[[label]]"
         no-label-float="[[noLabelFloat]]"
         always-float-label="[[alwaysFloatLabel]]"
-        allowed-pattern="[0-9]"
         aria-labelledby$="[[_ariaLabelledBy]]"
         aria-describedby$="[[_ariaDescribedBy]]"
         disabled$="[[disabled]]"
@@ -55,18 +54,16 @@
         validator="[[validator]]"
         required$="[[required]]"
         autofocus$="[[autofocus]]"
-        min$="[[_min]]"
-        max$="[[_max]]"
-        step$="[[_step]]"
+        min$="[[min]]"
+        max$="[[max]]"
+        step$="[[step]]"
         name$="[[name]]"
         placeholder$="[[placeholder]]"
         readonly$="[[readonly]]"
         tabindex$="[[tabIndex]]"
-        invalid="{{invalid}}"
         error-message="{{errorMessage}}"
         required="{{required}}"
-        auto-validate="[[autoValidate]]"
-        validator="[[validator]]">
+        auto-validate="[[autoValidate]]">
 
       <paper-button
           tabindex="-1"
@@ -74,7 +71,7 @@
           slot="prefix"
           prefix
           on-tap="stepDown"
-          disabled="[[_computeStepDownButtonDisabled(value, _min, disabled)]]">
+          disabled="[[_computeStepDownButtonDisabled(value, min, disabled)]]">
         <iron-icon icon="[[stepDownIcon]]"></iron-icon>
       </paper-button>
 
@@ -87,7 +84,7 @@
           slot="suffix"
           suffix
           on-tap="stepUp"
-          disabled="[[_computeStepUpButtonDisabled(value, _max, disabled)]]">
+          disabled="[[_computeStepUpButtonDisabled(value, max, disabled)]]">
         <iron-icon icon="[[stepUpIcon]]"></iron-icon>
       </paper-button>
 
@@ -188,31 +185,23 @@
           type: Boolean
         },
         /**
-         * The number that indicates the minimum value. It is used to compute
-         * `_min`. If `min` is not a relative integer, `_min` falls back
-         * to 0.
+         * The number that indicates the minimum value.
          */
         min: {
           type: Number
         },
         /**
-        * The number that indicates the maximum value. It is used to compute
-        * `_max`. If `max` is not a number, `_max` falls back
-        * to Number.POSITIVE_INFINITY. If `max` is inferior to `_min`, `_max`
-        * falls back to `_min`.
+        * The number that indicates the maximum value.
          */
         max: {
           type: Number
         },
         /**
          * The number that indicates the value increment granularity for
-         * stepUp and stepDown actions. It is used to compute `_step`.
-         * If `step` is not a number, `_step` falls back to 0.
+         * stepUp and stepDown actions.
          */
         step: {
-          type: Number,
-          value: 1,
-          notify: true
+          type: Number
         },
         /**
          * The name of this element.
@@ -246,36 +235,6 @@
           type: String
         },
         /**
-        * The minimum value the input have.
-        * Equals to `min` or 0 if `min` is not a number.
-        */
-        _min: {
-          type: Number,
-          computed: '_compute_min(min)',
-          readOnly: true,
-          value: 0
-        },
-        /**
-         * The maximum value the input have.
-         * Equals to `max` or Number.POSITIVE_INFINITY if `max` is not a number.
-         */
-        _max: {
-          type: Number,
-          computed: '_compute_max(max, _min)',
-          readOnly: true,
-          value: Number.POSITIVE_INFINITY
-        },
-        /**
-         * The value increment granularity for stepUp and stepDown actions
-         * Equals to `step` or 0 if `step` is not a number.
-         */
-        _step: {
-          type: Number,
-          computed: '_compute_step(step)',
-          readOnly: true,
-          notify: true
-        },
-        /**
          * Default fallback when value is not a number.
          */
         fallbackValue: {
@@ -300,82 +259,26 @@
         },
       },
 
-      observers: [
-        '_rangeValue(value, fallbackValue, _min, _max)'
-      ],
-
-      _compute_step: function(step) {
-        step = parseInt(step);
-        return isNaN(step) ? 0 : step;
-      },
-
-      _compute_min: function(min) {
-        min = parseInt(min);
-        return isNaN(min) || min < 0 ? 0 : min;
-      },
-
-      _compute_max: function(max, _min) {
-        max = parseInt(max);
-        return isNaN(max) ?
-          Number.POSITIVE_INFINITY :
-          ( max < _min ? _min : max);
-      },
-
-      _rangeValue: function(value, fallbackValue, _min, _max) {
-        this.value = isNaN((value = this.toRange(value))) ?
-          this.toRange(fallbackValue) :
-          value;
-      },
-
-      /**
-       * Rectrict the given value between `_min` and `_max`.
-       * @param  {Number} value The value to restrict
-       * @return {Number}       The ranged value or NaN if the input value is
-       *                        not a number.
-       */
-      toRange: function(value) {
-        return Math.max(this._min, Math.min(parseInt(value), this._max));
-      },
-
-      toRangeMax: function(value) {
-        return Math.min(this._max, parseInt(value));
-      },
-
-      toRangeMin: function(value) {
-        return Math.max(this._min, parseInt(value));
-      },
-
       /**
        *
        */
       stepUp: function() {
-        this.value = isNaN(this.value) ?
-          this.toRange(this._step) :
-          this.toRangeMax(this.value + this._step);
+        
       },
 
       /**
        *
        */
       stepDown: function() {
-        this.value = isNaN(this.value) ?
-          this.toRange(-this._step) :
-          this.toRangeMin(this.value - this._step);
+        
       },
 
-      add: function(n) {
-        if (isNaN(n)) n = 0;
-        this.value = isNaN(this.value) ?
-          this.toRange(n) :
-          this.toRange(this.value + n);
+      _computeStepDownButtonDisabled: function(value, min, disabled) {
+        return disabled || value <= min;
       },
 
-      _computeStepDownButtonDisabled: function(value, _min, disabled) {
-        return disabled || value <= _min;
-      },
-
-      _computeStepUpButtonDisabled: function(value, _max, disabled) {
-        return disabled || value >= _max;
+      _computeStepUpButtonDisabled: function(value, max, disabled) {
+        return disabled || value >= max;
       }
 
     });
