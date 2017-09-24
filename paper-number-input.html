@@ -155,6 +155,7 @@
             autocapitalize$="[[autocapitalize]]"
             autocorrect$="[[autocorrect]]"
             on-change="_onChange"
+            on-input="_oninput"
             tabindex$="[[tabIndex]]"
             autosave$="[[autosave]]"
             results$="[[results]]"
@@ -232,6 +233,16 @@
         };
       }
 
+      static get observers() {
+        return [
+          '_valueChanged(value)'
+        ];
+      }
+
+      _valueChanged(value) {
+        this._rangeValue(value);
+      }
+
       /**
       * Returns a reference to the focusable element. Overridden from PaperInputBehavior
       * to correctly focus the native input.
@@ -241,7 +252,6 @@
       }
 
       setFallbackValue() {
-        if (this.fallbackValue === undefined) return;
         this.value = this.fallbackValue;
       }
 
@@ -269,9 +279,31 @@
         return disabled || parseFloat(value) >= parseFloat(max);
       }
 
-      _handleFocusout() {
+      _onChange(e) {
+        super._onChange(e);
+        this._resetFallbackValueIfNeeded();
+      }
+
+      _resetFallbackValueIfNeeded() {
         if (!this.$.nativeInput.checkValidity()) {
           this.setFallbackValue();
+        }
+      }
+
+      _oninput(e) {
+        this._rangeValue(this.$.nativeInput.value);
+      }
+
+      _rangeValue(value) {
+        value = parseFloat(value);
+
+        if (isNaN(value)) return;
+
+        if (value < this.min) {
+          this.value = this.min;
+        }
+        if (value > this.max) {
+          this.value = this.max;
         }
       }
 
