@@ -6,7 +6,7 @@
 
     <title>paper-number-input demo</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
@@ -28,8 +28,8 @@
       <demo-snippet>
         <template>
 
-          <dom-bind id="v2Scope">
-            <template is="dom-bind" id="v1Scope">
+          <dom-bind id="scope">
+            <template>
 
             <!--
               For icons to appear, you can:
@@ -39,13 +39,16 @@
                   `stepDownIcon` as 'integer-input:step-down' and `stepUpIcon` as 'integer-input:step-up'
             -->
               <link rel="import" href="../../iron-icons/iron-icons.html">
+              <link rel="import" href="../../polymer/lib/elements/custom-style.html">
 
-              <style is="custom-style">
-                paper-number-input {
-                  max-width: 150px;
-                  margin: auto;
-                }
-              </style>
+              <custom-style>
+                <style>
+                  paper-number-input {
+                    max-width: 150px;
+                    margin: auto;
+                  }
+                </style>
+              </custom-style>
 
               <paper-input
                 label="Label"
@@ -107,8 +110,7 @@
               </paper-number-input>
 
               <script>
-                var scopeId = Polymer.Element ? 'v2Scope' : 'v1Scope';
-                var scope = document.getElementById(scopeId);
+                var scope = document.getElementById('scope');
 
                 scope.label = 'Relative integer';
                 scope.min = 1;

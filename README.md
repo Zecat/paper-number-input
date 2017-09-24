@@ -2,7 +2,7 @@
 
 # \<paper-number-input\>
 
-A Material Design input field for relative integer with step up/down buttons (Polymer 1.9 - 2.x).
+A Material Design input field for relative integer with step up/down buttons for Polymer 2.
 
 <!--
 ```
