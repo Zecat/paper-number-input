@@ -7,453 +7,19 @@
       "path": "paper-number-input.html",
       "properties": [
         {
-          "name": "tabIndex",
-          "type": "number",
-          "description": "The tabindex for this input.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 112,
-              "column": 8
-            },
-            "end": {
-              "line": 114,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "label",
-          "type": "string",
-          "description": "The label for this input.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 118,
-              "column": 8
-            },
-            "end": {
-              "line": 120,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "value",
-          "type": "number",
-          "description": "The number that represents the current value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 124,
-              "column": 8
-            },
-            "end": {
-              "line": 127,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "notify": true
-            }
-          }
-        },
-        {
-          "name": "disabled",
+          "name": "focused",
           "type": "boolean",
-          "description": "Set to true to disable this input.",
+          "description": "If true, the element currently has focus.",
           "privacy": "public",
           "sourceRange": {
+            "file": "bower_components/iron-behaviors/iron-control-state.html",
             "start": {
-              "line": 131,
-              "column": 8
+              "line": 25,
+              "column": 6
             },
             "end": {
-              "line": 134,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          },
-          "defaultValue": "false"
-        },
-        {
-          "name": "invalid",
-          "type": "boolean",
-          "description": "Returns true if the value is invalid.\n\nIf `autoValidate` is true, the `invalid` attribute is managed automatically,\nwhich can clobber attempts to manage it manually.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 141,
-              "column": 8
-            },
-            "end": {
-              "line": 145,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "notify": true
-            }
-          },
-          "defaultValue": "false"
-        },
-        {
-          "name": "required",
-          "type": "boolean",
-          "description": "Set to true to mark the input as required.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 149,
-              "column": 8
-            },
-            "end": {
-              "line": 152,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          },
-          "defaultValue": "false"
-        },
-        {
-          "name": "errorMessage",
-          "type": "string",
-          "description": "The error message to display when the input is invalid.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 156,
-              "column": 8
-            },
-            "end": {
-              "line": 158,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "noLabelFloat",
-          "type": "boolean",
-          "description": "Set to true to disable the floating label.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 162,
-              "column": 8
-            },
-            "end": {
-              "line": 164,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "alwaysFloatLabel",
-          "type": "boolean",
-          "description": "Set to true to always float the label.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 168,
-              "column": 8
-            },
-            "end": {
-              "line": 170,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "autoValidate",
-          "type": "boolean",
-          "description": "Set to true to auto-validate the input value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 174,
-              "column": 8
-            },
-            "end": {
-              "line": 177,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          },
-          "defaultValue": "false"
-        },
-        {
-          "name": "validator",
-          "type": "string",
-          "description": "Name of the validator to use.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 181,
-              "column": 8
-            },
-            "end": {
-              "line": 183,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "autofocus",
-          "type": "boolean",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 186,
-              "column": 8
-            },
-            "end": {
-              "line": 188,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "min",
-          "type": "number",
-          "description": "The number that indicates the minimum value. It is used to compute\n`_min`. If `min` is not a relative integer, `_min` falls back\nto 0.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 194,
-              "column": 8
-            },
-            "end": {
-              "line": 196,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "max",
-          "type": "number",
-          "description": "The number that indicates the maximum value. It is used to compute\n`_max`. If `max` is not a number, `_max` falls back\nto Number.POSITIVE_INFINITY. If `max` is inferior to `_min`, `_max`\nfalls back to `_min`.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 203,
-              "column": 8
-            },
-            "end": {
-              "line": 205,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "step",
-          "type": "number",
-          "description": "The number that indicates the value increment granularity for\nstepUp and stepDown actions. It is used to compute `_step`.\nIf `step` is not a number, `_step` falls back to 0.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 211,
-              "column": 8
-            },
-            "end": {
-              "line": 215,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "notify": true
-            }
-          },
-          "defaultValue": "1"
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "The name of this element.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 219,
-              "column": 8
-            },
-            "end": {
-              "line": 221,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "placeholder",
-          "type": "string",
-          "description": "A placeholder string in addition to the label. If this is set, the label will always float.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 225,
-              "column": 8
-            },
-            "end": {
-              "line": 227,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "readonly",
-          "type": "boolean",
-          "description": "If true, the value can't change due to user input.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 231,
-              "column": 8
-            },
-            "end": {
-              "line": 234,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          },
-          "defaultValue": "false"
-        },
-        {
-          "name": "_ariaDescribedBy",
-          "type": "string",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 238,
-              "column": 8
-            },
-            "end": {
-              "line": 240,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "_ariaLabelledBy",
-          "type": "string",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 244,
-              "column": 8
-            },
-            "end": {
-              "line": 246,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "_min",
-          "type": "number",
-          "description": "The minimum value the input have.\nEquals to `min` or 0 if `min` is not a number.",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 251,
-              "column": 8
-            },
-            "end": {
-              "line": 256,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          },
-          "defaultValue": "0"
-        },
-        {
-          "name": "_max",
-          "type": "number",
-          "description": "The maximum value the input have.\nEquals to `max` or Number.POSITIVE_INFINITY if `max` is not a number.",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 261,
-              "column": 8
-            },
-            "end": {
-              "line": 266,
-              "column": 9
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          }
-        },
-        {
-          "name": "_step",
-          "type": "number",
-          "description": "The value increment granularity for stepUp and stepDown actions\nEquals to `step` or 0 if `step` is not a number.",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 271,
-              "column": 8
-            },
-            "end": {
-              "line": 276,
-              "column": 9
+              "line": 31,
+              "column": 7
             }
           },
           "metadata": {
@@ -461,7 +27,955 @@
               "notify": true,
               "readOnly": true
             }
-          }
+          },
+          "defaultValue": "false",
+          "inheritedFrom": "Polymer.IronControlState"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Set to true to disable this input. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nboth the `<paper-input-container>`'s and the input's `disabled` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 67,
+              "column": 6
+            },
+            "end": {
+              "line": 70,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "_oldTabIndex",
+          "type": "number",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-behaviors/iron-control-state.html",
+            "start": {
+              "line": 44,
+              "column": 6
+            },
+            "end": {
+              "line": 46,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.IronControlState"
+        },
+        {
+          "name": "_boundFocusBlurHandler",
+          "type": "Function",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-behaviors/iron-control-state.html",
+            "start": {
+              "line": 48,
+              "column": 6
+            },
+            "end": {
+              "line": 53,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.IronControlState"
+        },
+        {
+          "name": "__handleEventRetargeting",
+          "type": "boolean",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "bower_components/iron-behaviors/iron-control-state.html",
+            "start": {
+              "line": 55,
+              "column": 6
+            },
+            "end": {
+              "line": 60,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.IronControlState"
+        },
+        {
+          "name": "keyEventTarget",
+          "type": "?EventTarget",
+          "description": "The EventTarget that will be firing relevant KeyboardEvents. Set it to\n`null` to disable the listeners.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 278,
+              "column": 8
+            },
+            "end": {
+              "line": 283,
+              "column": 9
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "stopKeyboardEventPropagation",
+          "type": "boolean",
+          "description": "If true, this property will cause the implementing element to\nautomatically stop propagation on any handled KeyboardEvents.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 289,
+              "column": 8
+            },
+            "end": {
+              "line": 292,
+              "column": 9
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false",
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "_boundKeyHandlers",
+          "type": "Array",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 294,
+              "column": 8
+            },
+            "end": {
+              "line": 299,
+              "column": 9
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "[]",
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "_imperativeKeyBindings",
+          "type": "Object",
+          "description": "own properties of everything on the \"prototype\".",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 303,
+              "column": 8
+            },
+            "end": {
+              "line": 308,
+              "column": 9
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "{}",
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "keyBindings",
+          "type": "Object",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 371,
+              "column": 4
+            },
+            "end": {
+              "line": 373,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "The label for this input. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\n`<label>`'s content and `hidden` property, e.g.\n`<label hidden$=\"[[!label]]\">[[label]]</label>` in your `template`",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 47,
+              "column": 6
+            },
+            "end": {
+              "line": 49,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The value for this input. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<iron-input>`'s `bindValue`\nproperty, or the value property of your input that is `notify:true`.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 57,
+              "column": 6
+            },
+            "end": {
+              "line": 60,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "Returns true if the value is invalid. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to both the\n`<paper-input-container>`'s and the input's `invalid` property.\n\nIf `autoValidate` is true, the `invalid` attribute is managed automatically,\nwhich can clobber attempts to manage it manually.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 80,
+              "column": 6
+            },
+            "end": {
+              "line": 84,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          },
+          "defaultValue": "false",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "allowedPattern",
+          "type": "string",
+          "description": "Set this to specify the pattern allowed by `preventInvalidInput`. If\nyou're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `allowedPattern`\nproperty.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 92,
+              "column": 6
+            },
+            "end": {
+              "line": 94,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 204,
+              "column": 10
+            },
+            "end": {
+              "line": 208,
+              "column": 11
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "\"number\""
+        },
+        {
+          "name": "list",
+          "type": "string",
+          "description": "The datalist of the input (if any). This should match the id of an existing `<datalist>`.\nIf you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `list` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 112,
+              "column": 6
+            },
+            "end": {
+              "line": 114,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "pattern",
+          "type": "string",
+          "description": "A pattern to validate the `input` with. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<input is=\"iron-input\">`'s `pattern` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 121,
+              "column": 6
+            },
+            "end": {
+              "line": 123,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "Set to true to mark the input as required. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<input is=\"iron-input\">`'s `required` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 130,
+              "column": 6
+            },
+            "end": {
+              "line": 133,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "errorMessage",
+          "type": "string",
+          "description": "The error message to display when the input is invalid. If you're using\nPaperInputBehavior to implement your own paper-input-like element,\nbind this to the `<paper-input-error>`'s content, if using.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 140,
+              "column": 6
+            },
+            "end": {
+              "line": 142,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "charCounter",
+          "type": "boolean",
+          "description": "Set to true to show a character counter.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 147,
+              "column": 6
+            },
+            "end": {
+              "line": 150,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "noLabelFloat",
+          "type": "boolean",
+          "description": "Set to true to disable the floating label. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<paper-input-container>`'s `noLabelFloat` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 157,
+              "column": 6
+            },
+            "end": {
+              "line": 160,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "alwaysFloatLabel",
+          "type": "boolean",
+          "description": "Set to true to always float the label. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<paper-input-container>`'s `alwaysFloatLabel` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 167,
+              "column": 6
+            },
+            "end": {
+              "line": 170,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "autoValidate",
+          "type": "boolean",
+          "description": "Set to true to auto-validate the input value. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<paper-input-container>`'s `autoValidate` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 177,
+              "column": 6
+            },
+            "end": {
+              "line": 180,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "validator",
+          "type": "string",
+          "description": "Name of the validator to use. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<input is=\"iron-input\">`'s `validator` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 187,
+              "column": 6
+            },
+            "end": {
+              "line": 189,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "autocomplete",
+          "type": "string",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `autocomplete` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 197,
+              "column": 6
+            },
+            "end": {
+              "line": 200,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "\"off\"",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `autofocus` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 206,
+              "column": 6
+            },
+            "end": {
+              "line": 209,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "\"_autofocusChanged\""
+            }
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "inputmode",
+          "type": "string",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `inputmode` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 215,
+              "column": 6
+            },
+            "end": {
+              "line": 217,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "minlength",
+          "type": "number",
+          "description": "The minimum length of the input value.\nIf you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `minlength` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 224,
+              "column": 6
+            },
+            "end": {
+              "line": 226,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "maxlength",
+          "type": "number",
+          "description": "The maximum length of the input value.\nIf you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `maxlength` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 233,
+              "column": 6
+            },
+            "end": {
+              "line": 235,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "min",
+          "type": "string",
+          "description": "The minimum (numeric or date-time) input value.\nIf you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `min` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 242,
+              "column": 6
+            },
+            "end": {
+              "line": 244,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "max",
+          "type": "string",
+          "description": "The maximum (numeric or date-time) input value.\nCan be a String (e.g. `\"2000-01-01\"`) or a Number (e.g. `2`).\nIf you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `max` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 252,
+              "column": 6
+            },
+            "end": {
+              "line": 254,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "step",
+          "type": "string",
+          "description": "Limits the numeric or date-time increments.\nIf you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `step` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 261,
+              "column": 6
+            },
+            "end": {
+              "line": 263,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `name` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 269,
+              "column": 6
+            },
+            "end": {
+              "line": 271,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "A placeholder string in addition to the label. If this is set, the label will always float.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 276,
+              "column": 6
+            },
+            "end": {
+              "line": 280,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "\"\"",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `readonly` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 286,
+              "column": 6
+            },
+            "end": {
+              "line": 289,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `size` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 295,
+              "column": 6
+            },
+            "end": {
+              "line": 297,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "autocapitalize",
+          "type": "string",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `autocapitalize` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 305,
+              "column": 6
+            },
+            "end": {
+              "line": 308,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "\"none\"",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "autocorrect",
+          "type": "string",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `autocorrect` property.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 314,
+              "column": 6
+            },
+            "end": {
+              "line": 317,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "\"off\"",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "autosave",
+          "type": "string",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `autosave` property,\nused with type=search.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 324,
+              "column": 6
+            },
+            "end": {
+              "line": 326,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "results",
+          "type": "number",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `results` property,\nused with type=search.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 333,
+              "column": 6
+            },
+            "end": {
+              "line": 335,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "accept",
+          "type": "string",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `accept` property,\nused with type=file.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 342,
+              "column": 6
+            },
+            "end": {
+              "line": 344,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the`<input is=\"iron-input\">`'s `multiple` property,\nused with type=file.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 351,
+              "column": 6
+            },
+            "end": {
+              "line": 353,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "_ariaDescribedBy",
+          "type": "string",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 355,
+              "column": 6
+            },
+            "end": {
+              "line": 358,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "\"\"",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "_ariaLabelledBy",
+          "type": "string",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 360,
+              "column": 6
+            },
+            "end": {
+              "line": 363,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "\"\"",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "hostAttributes",
+          "type": "Object",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 375,
+              "column": 4
+            },
+            "end": {
+              "line": 377,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
         },
         {
           "name": "fallbackValue",
@@ -470,12 +984,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 280,
-              "column": 8
+              "line": 212,
+              "column": 10
             },
             "end": {
-              "line": 283,
-              "column": 9
+              "line": 215,
+              "column": 11
             }
           },
           "metadata": {
@@ -490,12 +1004,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 288,
-              "column": 8
+              "line": 220,
+              "column": 10
             },
             "end": {
-              "line": 291,
-              "column": 9
+              "line": 223,
+              "column": 11
             }
           },
           "metadata": {
@@ -510,12 +1024,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 296,
-              "column": 8
+              "line": 228,
+              "column": 10
             },
             "end": {
-              "line": 299,
-              "column": 9
+              "line": 231,
+              "column": 11
             }
           },
           "metadata": {
@@ -526,160 +1040,696 @@
       ],
       "methods": [
         {
-          "name": "_compute_step",
+          "name": "ready",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
+            "file": "bower_components/iron-behaviors/iron-control-state.html",
             "start": {
-              "line": 306,
-              "column": 6
+              "line": 67,
+              "column": 4
             },
             "end": {
-              "line": 309,
-              "column": 7
+              "line": 70,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.IronControlState"
+        },
+        {
+          "name": "_focusBlurHandler",
+          "description": "Forward focus to inputElement. Overriden from IronControlState.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 444,
+              "column": 4
+            },
+            "end": {
+              "line": 451,
+              "column": 5
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "step"
+              "name": "event"
             }
-          ]
+          ],
+          "inheritedFrom": "Polymer.PaperInputBehavior"
         },
         {
-          "name": "_compute_min",
+          "name": "_disabledChanged",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
+            "file": "bower_components/iron-behaviors/iron-control-state.html",
             "start": {
-              "line": 311,
-              "column": 6
+              "line": 98,
+              "column": 4
             },
             "end": {
-              "line": 314,
-              "column": 7
+              "line": 109,
+              "column": 5
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "min"
+              "name": "disabled"
+            },
+            {
+              "name": "old"
             }
-          ]
+          ],
+          "inheritedFrom": "Polymer.IronControlState"
         },
         {
-          "name": "_compute_max",
+          "name": "_changedControlState",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
+            "file": "bower_components/iron-behaviors/iron-control-state.html",
             "start": {
-              "line": 316,
-              "column": 6
+              "line": 111,
+              "column": 4
             },
             "end": {
-              "line": 321,
-              "column": 7
+              "line": 116,
+              "column": 5
             }
           },
           "metadata": {},
-          "params": [
-            {
-              "name": "max"
-            },
-            {
-              "name": "_min"
-            }
-          ]
+          "params": [],
+          "inheritedFrom": "Polymer.IronControlState"
         },
         {
-          "name": "_rangeValue",
+          "name": "registered",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
             "start": {
               "line": 323,
               "column": 6
             },
             "end": {
-              "line": 327,
+              "line": 325,
               "column": 7
             }
           },
           "metadata": {},
-          "params": [
-            {
-              "name": "value"
-            },
-            {
-              "name": "fallbackValue"
-            },
-            {
-              "name": "_min"
-            },
-            {
-              "name": "_max"
-            }
-          ]
+          "params": [],
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
         },
         {
-          "name": "toRange",
-          "description": "Rectrict the given value between `_min` and `_max`.",
-          "privacy": "public",
+          "name": "attached",
+          "description": "",
+          "privacy": "protected",
           "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
             "start": {
-              "line": 335,
+              "line": 400,
+              "column": 4
+            },
+            "end": {
+              "line": 410,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "detached",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 331,
               "column": 6
             },
             "end": {
-              "line": 337,
+              "line": 333,
               "column": 7
             }
           },
           "metadata": {},
-          "params": [
-            {
-              "name": "value",
-              "type": "Number",
-              "description": "The value to restrict"
-            }
-          ],
-          "return": {
-            "type": "Number",
-            "desc": "The ranged value or NaN if the input value is\n                       not a number."
-          }
+          "params": [],
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
         },
         {
-          "name": "toRangeMax",
-          "description": "",
+          "name": "addOwnKeyBinding",
+          "description": "Can be used to imperatively add a key binding to the implementing\nelement. This is the imperative equivalent of declaring a keybinding\nin the `keyBindings` prototype property.",
           "privacy": "public",
           "sourceRange": {
-            "start": {
-              "line": 339,
-              "column": 6
-            },
-            "end": {
-              "line": 341,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "value"
-            }
-          ]
-        },
-        {
-          "name": "toRangeMin",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
             "start": {
               "line": 343,
               "column": 6
             },
             "end": {
-              "line": 345,
+              "line": 347,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "eventString",
+              "type": "string"
+            },
+            {
+              "name": "handlerName",
+              "type": "string"
+            }
+          ],
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "removeOwnKeyBindings",
+          "description": "When called, will remove all imperatively-added key bindings.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 352,
+              "column": 6
+            },
+            "end": {
+              "line": 356,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "keyboardEventMatchesKeys",
+          "description": "Returns true if a keyboard event matches `eventString`.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 365,
+              "column": 6
+            },
+            "end": {
+              "line": 373,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event",
+              "type": "KeyboardEvent"
+            },
+            {
+              "name": "eventString",
+              "type": "string"
+            }
+          ],
+          "return": {
+            "type": "boolean"
+          },
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "_collectKeyBindings",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 375,
+              "column": 6
+            },
+            "end": {
+              "line": 385,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "_prepKeyBindings",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 387,
+              "column": 6
+            },
+            "end": {
+              "line": 408,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "_addKeyBinding",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 410,
+              "column": 6
+            },
+            "end": {
+              "line": 420,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "eventString"
+            },
+            {
+              "name": "handlerName"
+            }
+          ],
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "_resetKeyEventListeners",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 422,
+              "column": 6
+            },
+            "end": {
+              "line": 428,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "_listenKeyEventListeners",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 430,
+              "column": 6
+            },
+            "end": {
+              "line": 442,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "_unlistenKeyEventListeners",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 444,
+              "column": 6
+            },
+            "end": {
+              "line": 459,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "_onKeyBindingEvent",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 461,
+              "column": 6
+            },
+            "end": {
+              "line": 482,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "keyBindings"
+            },
+            {
+              "name": "event"
+            }
+          ],
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "_triggerKeyHandler",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 484,
+              "column": 6
+            },
+            "end": {
+              "line": 495,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "keyCombo"
+            },
+            {
+              "name": "handlerName"
+            },
+            {
+              "name": "keyboardEvent"
+            }
+          ],
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "inputElement",
+          "description": "Returns a reference to the input element.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 382,
+              "column": 4
+            },
+            "end": {
+              "line": 384,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "_focusableElement",
+          "description": "Returns a reference to the focusable element.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 389,
+              "column": 4
+            },
+            "end": {
+              "line": 391,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "created",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 393,
+              "column": 4
+            },
+            "end": {
+              "line": 398,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "_appendStringWithSpace",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 412,
+              "column": 4
+            },
+            "end": {
+              "line": 419,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "str"
+            },
+            {
+              "name": "more"
+            }
+          ],
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "_onAddonAttached",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 421,
+              "column": 4
+            },
+            "end": {
+              "line": 430,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event"
+            }
+          ],
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "validate",
+          "description": "Validates the input element and sets an error style if needed.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 437,
+              "column": 4
+            },
+            "end": {
+              "line": 439,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "boolean"
+          },
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "_onShiftTabDown",
+          "description": "Handler that is called when a shift+tab keypress is detected by the menu.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 458,
+              "column": 4
+            },
+            "end": {
+              "line": 466,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event",
+              "type": "CustomEvent",
+              "description": "A key combination event."
+            }
+          ],
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "_handleAutoValidate",
+          "description": "If `autoValidate` is true, then validates the element.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 471,
+              "column": 4
+            },
+            "end": {
+              "line": 474,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "updateValueAndPreserveCaret",
+          "description": "Restores the cursor to its original position after updating the value.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 480,
+              "column": 4
+            },
+            "end": {
+              "line": 496,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "newValue",
+              "type": "string",
+              "description": "The value that should be saved."
+            }
+          ],
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "_computeAlwaysFloatLabel",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 498,
+              "column": 4
+            },
+            "end": {
+              "line": 500,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "alwaysFloatLabel"
+            },
+            {
+              "name": "placeholder"
+            }
+          ],
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "_updateAriaLabelledBy",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 502,
+              "column": 4
+            },
+            "end": {
+              "line": 516,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "_onChange",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 281,
+              "column": 6
+            },
+            "end": {
+              "line": 284,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            }
+          ]
+        },
+        {
+          "name": "_autofocusChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 531,
+              "column": 4
+            },
+            "end": {
+              "line": 556,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "_valueChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 241,
+              "column": 6
+            },
+            "end": {
+              "line": 243,
               "column": 7
             }
           },
@@ -689,6 +1739,23 @@
               "name": "value"
             }
           ]
+        },
+        {
+          "name": "setFallbackValue",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 253,
+              "column": 6
+            },
+            "end": {
+              "line": 255,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": []
         },
         {
           "name": "stepUp",
@@ -696,11 +1763,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 350,
+              "line": 260,
               "column": 6
             },
             "end": {
-              "line": 354,
+              "line": 263,
               "column": 7
             }
           },
@@ -713,11 +1780,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 359,
+              "line": 268,
               "column": 6
             },
             "end": {
-              "line": 363,
+              "line": 271,
               "column": 7
             }
           },
@@ -725,37 +1792,16 @@
           "params": []
         },
         {
-          "name": "add",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 365,
-              "column": 6
-            },
-            "end": {
-              "line": 370,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "n"
-            }
-          ]
-        },
-        {
           "name": "_computeStepDownButtonDisabled",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 372,
+              "line": 273,
               "column": 6
             },
             "end": {
-              "line": 374,
+              "line": 275,
               "column": 7
             }
           },
@@ -765,7 +1811,7 @@
               "name": "value"
             },
             {
-              "name": "_min"
+              "name": "min"
             },
             {
               "name": "disabled"
@@ -778,11 +1824,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 376,
+              "line": 277,
               "column": 6
             },
             "end": {
-              "line": 378,
+              "line": 279,
               "column": 7
             }
           },
@@ -792,10 +1838,69 @@
               "name": "value"
             },
             {
-              "name": "_max"
+              "name": "max"
             },
             {
               "name": "disabled"
+            }
+          ]
+        },
+        {
+          "name": "_resetFallbackValueIfNeeded",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 286,
+              "column": 6
+            },
+            "end": {
+              "line": 290,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_oninput",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 292,
+              "column": 6
+            },
+            "end": {
+              "line": 294,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            }
+          ]
+        },
+        {
+          "name": "_rangeValue",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 296,
+              "column": 6
+            },
+            "end": {
+              "line": 307,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "value"
             }
           ]
         }
@@ -810,316 +1915,675 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 104,
-          "column": 12
+          "line": 196,
+          "column": 4
         },
         "end": {
-          "line": 380,
+          "line": 309,
           "column": 5
         }
       },
       "privacy": "public",
       "superclass": "HTMLElement",
+      "name": "PaperNumberInput",
       "attributes": [
         {
-          "name": "tab-index",
-          "description": "The tabindex for this input.",
+          "name": "focused",
+          "description": "If true, the element currently has focus.",
           "sourceRange": {
+            "file": "bower_components/iron-behaviors/iron-control-state.html",
             "start": {
-              "line": 112,
-              "column": 8
+              "line": 25,
+              "column": 6
             },
             "end": {
-              "line": 114,
-              "column": 9
+              "line": 31,
+              "column": 7
             }
           },
           "metadata": {},
-          "type": "number"
-        },
-        {
-          "name": "label",
-          "description": "The label for this input.",
-          "sourceRange": {
-            "start": {
-              "line": 118,
-              "column": 8
-            },
-            "end": {
-              "line": 120,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "type": "string"
-        },
-        {
-          "name": "value",
-          "description": "The number that represents the current value.",
-          "sourceRange": {
-            "start": {
-              "line": 124,
-              "column": 8
-            },
-            "end": {
-              "line": 127,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "type": "number"
+          "type": "boolean",
+          "inheritedFrom": "Polymer.IronControlState"
         },
         {
           "name": "disabled",
-          "description": "Set to true to disable this input.",
+          "description": "Set to true to disable this input. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nboth the `<paper-input-container>`'s and the input's `disabled` property.",
           "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
             "start": {
-              "line": 131,
+              "line": 67,
+              "column": 6
+            },
+            "end": {
+              "line": 70,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "key-event-target",
+          "description": "The EventTarget that will be firing relevant KeyboardEvents. Set it to\n`null` to disable the listeners.",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 278,
               "column": 8
             },
             "end": {
-              "line": 134,
+              "line": 283,
               "column": 9
             }
           },
           "metadata": {},
-          "type": "boolean"
+          "type": "?EventTarget",
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "stop-keyboard-event-propagation",
+          "description": "If true, this property will cause the implementing element to\nautomatically stop propagation on any handled KeyboardEvents.",
+          "sourceRange": {
+            "file": "bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html",
+            "start": {
+              "line": 289,
+              "column": 8
+            },
+            "end": {
+              "line": 292,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "Polymer.IronA11yKeysBehavior"
+        },
+        {
+          "name": "label",
+          "description": "The label for this input. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\n`<label>`'s content and `hidden` property, e.g.\n`<label hidden$=\"[[!label]]\">[[label]]</label>` in your `template`",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 47,
+              "column": 6
+            },
+            "end": {
+              "line": 49,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "value",
+          "description": "The value for this input. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<iron-input>`'s `bindValue`\nproperty, or the value property of your input that is `notify:true`.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 57,
+              "column": 6
+            },
+            "end": {
+              "line": 60,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
         },
         {
           "name": "invalid",
-          "description": "Returns true if the value is invalid.\n\nIf `autoValidate` is true, the `invalid` attribute is managed automatically,\nwhich can clobber attempts to manage it manually.",
+          "description": "Returns true if the value is invalid. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to both the\n`<paper-input-container>`'s and the input's `invalid` property.\n\nIf `autoValidate` is true, the `invalid` attribute is managed automatically,\nwhich can clobber attempts to manage it manually.",
           "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
             "start": {
-              "line": 141,
-              "column": 8
+              "line": 80,
+              "column": 6
             },
             "end": {
-              "line": 145,
-              "column": 9
+              "line": 84,
+              "column": 7
             }
           },
           "metadata": {},
-          "type": "boolean"
+          "type": "boolean",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
         },
         {
-          "name": "required",
-          "description": "Set to true to mark the input as required.",
+          "name": "allowed-pattern",
+          "description": "Set this to specify the pattern allowed by `preventInvalidInput`. If\nyou're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `allowedPattern`\nproperty.",
           "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
             "start": {
-              "line": 149,
-              "column": 8
+              "line": 92,
+              "column": 6
             },
             "end": {
-              "line": 152,
-              "column": 9
+              "line": 94,
+              "column": 7
             }
           },
           "metadata": {},
-          "type": "boolean"
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
         },
         {
-          "name": "error-message",
-          "description": "The error message to display when the input is invalid.",
-          "sourceRange": {
-            "start": {
-              "line": 156,
-              "column": 8
-            },
-            "end": {
-              "line": 158,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "type": "string"
-        },
-        {
-          "name": "no-label-float",
-          "description": "Set to true to disable the floating label.",
-          "sourceRange": {
-            "start": {
-              "line": 162,
-              "column": 8
-            },
-            "end": {
-              "line": 164,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "type": "boolean"
-        },
-        {
-          "name": "always-float-label",
-          "description": "Set to true to always float the label.",
-          "sourceRange": {
-            "start": {
-              "line": 168,
-              "column": 8
-            },
-            "end": {
-              "line": 170,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "type": "boolean"
-        },
-        {
-          "name": "auto-validate",
-          "description": "Set to true to auto-validate the input value.",
-          "sourceRange": {
-            "start": {
-              "line": 174,
-              "column": 8
-            },
-            "end": {
-              "line": 177,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "type": "boolean"
-        },
-        {
-          "name": "validator",
-          "description": "Name of the validator to use.",
-          "sourceRange": {
-            "start": {
-              "line": 181,
-              "column": 8
-            },
-            "end": {
-              "line": 183,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "type": "string"
-        },
-        {
-          "name": "autofocus",
+          "name": "type",
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 186,
-              "column": 8
+              "line": 204,
+              "column": 10
             },
             "end": {
-              "line": 188,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "type": "boolean"
-        },
-        {
-          "name": "min",
-          "description": "The number that indicates the minimum value. It is used to compute\n`_min`. If `min` is not a relative integer, `_min` falls back\nto 0.",
-          "sourceRange": {
-            "start": {
-              "line": 194,
-              "column": 8
-            },
-            "end": {
-              "line": 196,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "type": "number"
-        },
-        {
-          "name": "max",
-          "description": "The number that indicates the maximum value. It is used to compute\n`_max`. If `max` is not a number, `_max` falls back\nto Number.POSITIVE_INFINITY. If `max` is inferior to `_min`, `_max`\nfalls back to `_min`.",
-          "sourceRange": {
-            "start": {
-              "line": 203,
-              "column": 8
-            },
-            "end": {
-              "line": 205,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "type": "number"
-        },
-        {
-          "name": "step",
-          "description": "The number that indicates the value increment granularity for\nstepUp and stepDown actions. It is used to compute `_step`.\nIf `step` is not a number, `_step` falls back to 0.",
-          "sourceRange": {
-            "start": {
-              "line": 211,
-              "column": 8
-            },
-            "end": {
-              "line": 215,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "type": "number"
-        },
-        {
-          "name": "name",
-          "description": "The name of this element.",
-          "sourceRange": {
-            "start": {
-              "line": 219,
-              "column": 8
-            },
-            "end": {
-              "line": 221,
-              "column": 9
+              "line": 208,
+              "column": 11
             }
           },
           "metadata": {},
           "type": "string"
+        },
+        {
+          "name": "list",
+          "description": "The datalist of the input (if any). This should match the id of an existing `<datalist>`.\nIf you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `list` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 112,
+              "column": 6
+            },
+            "end": {
+              "line": 114,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "pattern",
+          "description": "A pattern to validate the `input` with. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<input is=\"iron-input\">`'s `pattern` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 121,
+              "column": 6
+            },
+            "end": {
+              "line": 123,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "required",
+          "description": "Set to true to mark the input as required. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<input is=\"iron-input\">`'s `required` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 130,
+              "column": 6
+            },
+            "end": {
+              "line": 133,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "error-message",
+          "description": "The error message to display when the input is invalid. If you're using\nPaperInputBehavior to implement your own paper-input-like element,\nbind this to the `<paper-input-error>`'s content, if using.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 140,
+              "column": 6
+            },
+            "end": {
+              "line": 142,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "char-counter",
+          "description": "Set to true to show a character counter.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 147,
+              "column": 6
+            },
+            "end": {
+              "line": 150,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "no-label-float",
+          "description": "Set to true to disable the floating label. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<paper-input-container>`'s `noLabelFloat` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 157,
+              "column": 6
+            },
+            "end": {
+              "line": 160,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "always-float-label",
+          "description": "Set to true to always float the label. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<paper-input-container>`'s `alwaysFloatLabel` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 167,
+              "column": 6
+            },
+            "end": {
+              "line": 170,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "auto-validate",
+          "description": "Set to true to auto-validate the input value. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<paper-input-container>`'s `autoValidate` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 177,
+              "column": 6
+            },
+            "end": {
+              "line": 180,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "validator",
+          "description": "Name of the validator to use. If you're using PaperInputBehavior to\nimplement your own paper-input-like element, bind this to\nthe `<input is=\"iron-input\">`'s `validator` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 187,
+              "column": 6
+            },
+            "end": {
+              "line": 189,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "autocomplete",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `autocomplete` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 197,
+              "column": 6
+            },
+            "end": {
+              "line": 200,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "autofocus",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `autofocus` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 206,
+              "column": 6
+            },
+            "end": {
+              "line": 209,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "inputmode",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `inputmode` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 215,
+              "column": 6
+            },
+            "end": {
+              "line": 217,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "minlength",
+          "description": "The minimum length of the input value.\nIf you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `minlength` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 224,
+              "column": 6
+            },
+            "end": {
+              "line": 226,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "number",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "maxlength",
+          "description": "The maximum length of the input value.\nIf you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `maxlength` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 233,
+              "column": 6
+            },
+            "end": {
+              "line": 235,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "number",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "min",
+          "description": "The minimum (numeric or date-time) input value.\nIf you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `min` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 242,
+              "column": 6
+            },
+            "end": {
+              "line": 244,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "max",
+          "description": "The maximum (numeric or date-time) input value.\nCan be a String (e.g. `\"2000-01-01\"`) or a Number (e.g. `2`).\nIf you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `max` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 252,
+              "column": 6
+            },
+            "end": {
+              "line": 254,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "step",
+          "description": "Limits the numeric or date-time increments.\nIf you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `step` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 261,
+              "column": 6
+            },
+            "end": {
+              "line": 263,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "name",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `name` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 269,
+              "column": 6
+            },
+            "end": {
+              "line": 271,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
         },
         {
           "name": "placeholder",
           "description": "A placeholder string in addition to the label. If this is set, the label will always float.",
           "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
             "start": {
-              "line": 225,
-              "column": 8
+              "line": 276,
+              "column": 6
             },
             "end": {
-              "line": 227,
-              "column": 9
+              "line": 280,
+              "column": 7
             }
           },
           "metadata": {},
-          "type": "string"
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
         },
         {
           "name": "readonly",
-          "description": "If true, the value can't change due to user input.",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `readonly` property.",
           "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
             "start": {
-              "line": 231,
-              "column": 8
+              "line": 286,
+              "column": 6
             },
             "end": {
-              "line": 234,
-              "column": 9
+              "line": 289,
+              "column": 7
             }
           },
           "metadata": {},
-          "type": "boolean"
+          "type": "boolean",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "size",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `size` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 295,
+              "column": 6
+            },
+            "end": {
+              "line": 297,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "number",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "autocapitalize",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `autocapitalize` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 305,
+              "column": 6
+            },
+            "end": {
+              "line": 308,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "autocorrect",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `autocorrect` property.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 314,
+              "column": 6
+            },
+            "end": {
+              "line": 317,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "autosave",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `autosave` property,\nused with type=search.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 324,
+              "column": 6
+            },
+            "end": {
+              "line": 326,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "results",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `results` property,\nused with type=search.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 333,
+              "column": 6
+            },
+            "end": {
+              "line": 335,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "number",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "accept",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the `<input is=\"iron-input\">`'s `accept` property,\nused with type=file.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 342,
+              "column": 6
+            },
+            "end": {
+              "line": 344,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "name": "multiple",
+          "description": "If you're using PaperInputBehavior to implement your own paper-input-like\nelement, bind this to the`<input is=\"iron-input\">`'s `multiple` property,\nused with type=file.",
+          "sourceRange": {
+            "file": "bower_components/paper-input/paper-input-behavior.html",
+            "start": {
+              "line": 351,
+              "column": 6
+            },
+            "end": {
+              "line": 353,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "Polymer.PaperInputBehavior"
         },
         {
           "name": "fallback-value",
           "description": "Default fallback when value is not a number.",
           "sourceRange": {
             "start": {
-              "line": 280,
-              "column": 8
+              "line": 212,
+              "column": 10
             },
             "end": {
-              "line": 283,
-              "column": 9
+              "line": 215,
+              "column": 11
             }
           },
           "metadata": {},
@@ -1130,12 +2594,12 @@
           "description": "The icon key for the step down button. You will need to import an\nicon set for the icon to appear.",
           "sourceRange": {
             "start": {
-              "line": 288,
-              "column": 8
+              "line": 220,
+              "column": 10
             },
             "end": {
-              "line": 291,
-              "column": 9
+              "line": 223,
+              "column": 11
             }
           },
           "metadata": {},
@@ -1146,12 +2610,12 @@
           "description": "The icon key for the step up button. You will need to import an\nicon set for the icon to appear.",
           "sourceRange": {
             "start": {
-              "line": 296,
-              "column": 8
+              "line": 228,
+              "column": 10
             },
             "end": {
-              "line": 299,
-              "column": 9
+              "line": 231,
+              "column": 11
             }
           },
           "metadata": {},
@@ -1161,21 +2625,38 @@
       "events": [
         {
           "type": "CustomEvent",
+          "name": "focused-changed",
+          "description": "Fired when the `focused` property changes.",
+          "metadata": {},
+          "inheritedFrom": "Polymer.IronControlState"
+        },
+        {
+          "type": "CustomEvent",
+          "name": "disabled-changed",
+          "description": "Fired when the `disabled` property changes.",
+          "metadata": {},
+          "inheritedFrom": "Polymer.IronControlState"
+        },
+        {
+          "type": "CustomEvent",
+          "name": "change",
+          "description": "change",
+          "metadata": {},
+          "inheritedFrom": "Polymer.PaperInputBehavior"
+        },
+        {
+          "type": "CustomEvent",
           "name": "value-changed",
           "description": "Fired when the `value` property changes.",
-          "metadata": {}
+          "metadata": {},
+          "inheritedFrom": "Polymer.PaperInputBehavior"
         },
         {
           "type": "CustomEvent",
           "name": "invalid-changed",
           "description": "Fired when the `invalid` property changes.",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "step-changed",
-          "description": "Fired when the `step` property changes.",
-          "metadata": {}
+          "metadata": {},
+          "inheritedFrom": "Polymer.PaperInputBehavior"
         }
       ],
       "styling": {
@@ -1189,11 +2670,11 @@
           "range": {
             "file": "paper-number-input.html",
             "start": {
-              "line": 80,
+              "line": 124,
               "column": 6
             },
             "end": {
-              "line": 80,
+              "line": 124,
               "column": 47
             }
           }
@@ -1204,17 +2685,20 @@
           "range": {
             "file": "paper-number-input.html",
             "start": {
-              "line": 81,
+              "line": 165,
               "column": 6
             },
             "end": {
-              "line": 81,
+              "line": 165,
               "column": 47
             }
           }
         }
       ],
-      "tagname": "paper-number-input"
+      "tagname": "paper-number-input",
+      "mixins": [
+        "Polymer.PaperInputBehavior"
+      ]
     }
   ]
 }
