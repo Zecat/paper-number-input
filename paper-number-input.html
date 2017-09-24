@@ -263,18 +263,24 @@
         };
       }
 
+      get _input() {
+        return this.$.input._focusableElement;
+      }
+
       /**
        *
        */
       stepUp() {
-        
+        this._input.stepUp();
+        this.value = this._input.value;
       }
 
       /**
        *
        */
       stepDown() {
-        
+        this._input.stepDown();
+        this.value = this._input.value;
       }
 
       _computeStepDownButtonDisabled(value, min, disabled) {
