@@ -1,16 +1,16 @@
 {
-  "name": "paper-relative-integer-input",
+  "name": "paper-number-input",
   "version": "0.1.0",
   "description": "A Material Design input field for relative integer with step up/down buttons (Polymer 1.9 - 2.x)",
-  "main": "paper-relative-integer-input.html",
+  "main": "paper-number-input.html",
   "authors": [
     "Zecat <jullienfelix@gmail.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/Zecat/paper-relative-integer-input.git"
+    "url": "git://github.com/Zecat/paper-number-input.git"
   },
-  "homepage": "https://github.com/Zecat/paper-relative-integer-input",
+  "homepage": "https://github.com/Zecat/paper-number-input",
   "ignore": [],
   "license": "MIT",
   "keywords": [

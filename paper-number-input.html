@@ -5,7 +5,7 @@
 <link rel="import" href="../paper-styles/color.html">
 <link rel="import" href="../polymer/polymer.html">
 
-<dom-module id="paper-relative-integer-input">
+<dom-module id="paper-number-input">
   <template>
     <style>
       :host {
@@ -23,7 +23,7 @@
           appearance: none;
           margin: 0;
         };
-        @apply --paper-relative-integer-input-paper-input;
+        @apply --paper-number-input-paper-input;
       }
       .spinner {
         margin: 0;
@@ -31,11 +31,11 @@
         --paper-button-disabled: {
           background: transparent;
         };
-        @apply --paper-relative-integer-input-spinner;
+        @apply --paper-number-input-spinner;
       }
       .spinner:hover {
         background: rgba(0, 0, 0, 0.1);
-        @apply --paper-relative-integer-input-spinner-hover;
+        @apply --paper-number-input-spinner-hover;
       }
     </style>
 
@@ -104,7 +104,7 @@
      */
     Polymer({
 
-      is: 'paper-relative-integer-input',
+      is: 'paper-number-input',
 
       properties: {
         /**

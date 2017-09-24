@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>paper-relative-integer-input demo</title>
+    <title>paper-number-input demo</title>
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
@@ -13,7 +13,7 @@
     <link rel="import" href="../../paper-input/paper-input.html">
     <link rel="import" href="../../iron-flex-layout/iron-flex-layout.html">
     <link rel="import" href="../../paper-checkbox/paper-checkbox.html">
-    <link rel="import" href="../paper-relative-integer-input.html">
+    <link rel="import" href="../paper-number-input.html">
   </head>
 
   <body>
@@ -35,13 +35,13 @@
               For icons to appear, you can:
                - just import the iron-icons/iron-icons.html Polymer element,
                - create your own icon set and specify `stepDownIcon` and `stepUpIcon` properties according.
-               - import paper-relative-integer-input/paper-relative-integer-input-icons and define
+               - import paper-number-input/paper-number-input-icons and define
                   `stepDownIcon` as 'integer-input:step-down' and `stepUpIcon` as 'integer-input:step-up'
             -->
               <link rel="import" href="../../iron-icons/iron-icons.html">
 
               <style is="custom-style">
-                paper-relative-integer-input {
+                paper-number-input {
                   max-width: 150px;
                   margin: auto;
                 }
@@ -90,7 +90,7 @@
                 checked="{{alwaysFloatLabel}}"
               >Always label float</paper-checkbox>
 
-              <paper-relative-integer-input
+              <paper-number-input
                 always-float-label="{{alwaysFloatLabel}}"
                 label="[[label]]"
                 min="[[min]]"
@@ -104,7 +104,7 @@
                   <div slot="prefix"></div>
                   <div slot="suffix"></div>
                 -->
-              </paper-relative-integer-input>
+              </paper-number-input>
 
               <script>
                 var scopeId = Polymer.Element ? 'v2Scope' : 'v1Scope';

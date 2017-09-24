@@ -4,7 +4,7 @@
     {
       "description": "",
       "summary": "",
-      "path": "paper-relative-integer-input.html",
+      "path": "paper-number-input.html",
       "properties": [
         {
           "name": "tabIndex",
@@ -1187,7 +1187,7 @@
           "description": "",
           "name": "prefix",
           "range": {
-            "file": "paper-relative-integer-input.html",
+            "file": "paper-number-input.html",
             "start": {
               "line": 80,
               "column": 6
@@ -1202,7 +1202,7 @@
           "description": "",
           "name": "suffix",
           "range": {
-            "file": "paper-relative-integer-input.html",
+            "file": "paper-number-input.html",
             "start": {
               "line": 81,
               "column": 6
@@ -1214,7 +1214,7 @@
           }
         }
       ],
-      "tagname": "paper-relative-integer-input"
+      "tagname": "paper-number-input"
     }
   ]
 }

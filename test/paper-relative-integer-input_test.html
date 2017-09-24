@@ -4,25 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>paper-relative-integer-input test</title>
+    <title>paper-number-input test</title>
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../paper-relative-integer-input.html">
+    <link rel="import" href="../paper-number-input.html">
   </head>
   <body>
     <test-fixture id="basic">
       <template>
-        <paper-relative-integer-input></paper-relative-integer-input>
+        <paper-number-input></paper-number-input>
       </template>
     </test-fixture>
 
     <script>
-      suite('paper-relative-integer-input', function() {
+      suite('paper-number-input', function() {
         test('instantiating the element works', function() {
           var element = fixture('basic');
-          assert.equal(element.is, 'paper-relative-integer-input');
+          assert.equal(element.is, 'paper-number-input');
         });
       });
     </script>
