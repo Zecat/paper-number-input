@@ -4,15 +4,18 @@
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../paper-styles/color.html">
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-input/iron-input.html">
+<link rel="import" href="../paper-input/paper-input-behavior.html">
+<link rel="import" href="../paper-input/paper-input-char-counter.html">
+<link rel="import" href="../paper-input/paper-input-container.html">
+<link rel="import" href="../paper-input/paper-input-error.html">
+
 
 <dom-module id="paper-number-input">
   <template>
     <style>
       :host {
         display: block;
-        box-sizing: border-box;
-      }
-      #input {
         text-align: center;
         --paper-input-container-input: {
           -moz-appearance: textfield;
@@ -23,8 +26,8 @@
           appearance: none;
           margin: 0;
         };
-        @apply --paper-number-input-paper-input;
       }
+
       .spinner {
         margin: 0;
         min-width: auto;
@@ -33,38 +36,82 @@
         };
         @apply --paper-number-input-spinner;
       }
+
       .spinner:hover {
         background: rgba(0, 0, 0, 0.1);
         @apply --paper-number-input-spinner-hover;
       }
+
+
+      :host([focused]) {
+        outline: none;
+      }
+
+      :host([hidden]) {
+        display: none !important;
+      }
+
+      input {
+        position: relative; /* to make a stacking context */
+        outline: none;
+        box-shadow: none;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+        background: transparent;
+        border: none;
+        color: var(--paper-input-container-input-color, var(--primary-text-color));
+        -webkit-appearance: none;
+        text-align: inherit;
+        vertical-align: bottom;
+
+        /* Firefox sets a min-width on the input, which can cause layout issues */
+        min-width: 0;
+
+        @apply --paper-font-subhead;
+        @apply --paper-input-container-input;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        @apply --paper-input-container-input-webkit-spinner;
+      }
+
+      input::-webkit-clear-button {
+        @apply --paper-input-container-input-webkit-clear;
+      }
+
+      input::-webkit-input-placeholder {
+        color: var(--paper-input-container-color, var(--secondary-text-color));
+      }
+
+      input:-moz-placeholder {
+        color: var(--paper-input-container-color, var(--secondary-text-color));
+      }
+
+      input::-moz-placeholder {
+        color: var(--paper-input-container-color, var(--secondary-text-color));
+      }
+
+      input::-ms-clear {
+        @apply --paper-input-container-ms-clear;
+      }
+
+      input:-ms-input-placeholder {
+        color: var(--paper-input-container-color, var(--secondary-text-color));
+      }
+
+      label {
+        pointer-events: none;
+      }
     </style>
 
-    <paper-input
-        id="input"
-        type="number"
-        value="{{value}}"
-        label="[[label]]"
+     <paper-input-container id="container"
         no-label-float="[[noLabelFloat]]"
-        always-float-label="[[alwaysFloatLabel]]"
-        aria-labelledby$="[[_ariaLabelledBy]]"
-        aria-describedby$="[[_ariaDescribedBy]]"
+        always-float-label="[[_computeAlwaysFloatLabel(alwaysFloatLabel,placeholder)]]"
+        auto-validate$="[[autoValidate]]"
         disabled$="[[disabled]]"
-        title$="[[title]]"
-        invalid="{{invalid}}"
-        validator="[[validator]]"
-        required$="[[required]]"
-        autofocus$="[[autofocus]]"
-        min$="[[min]]"
-        max$="[[max]]"
-        step$="[[step]]"
-        name$="[[name]]"
-        placeholder$="[[placeholder]]"
-        readonly$="[[readonly]]"
-        tabindex$="[[tabIndex]]"
-        error-message="{{errorMessage}}"
-        required="{{required}}"
-        auto-validate="[[autoValidate]]"
-        on-focusout="_handleFocusout">
+        invalid="[[invalid]]">
 
       <paper-button
           tabindex="-1"
@@ -76,6 +123,45 @@
       </paper-button>
 
       <slot name="prefix" slot="prefix"></slot>
+
+      <label hidden$="[[!label]]" aria-hidden="true" for="input" slot="label">[[label]]</label>
+
+      <iron-input bind-value="{{value}}" id="input" slot="input"
+          maxlength$="[[maxlength]]"
+          allowed-pattern="[[allowedPattern]]"
+          invalid="{{invalid}}"
+          validator="[[validator]]">
+        <input id="nativeInput"
+            aria-labelledby$="[[_ariaLabelledBy]]"
+            aria-describedby$="[[_ariaDescribedBy]]"
+            disabled$="[[disabled]]"
+            title$="[[title]]"
+            type$="[[type]]"
+            pattern$="[[pattern]]"
+            required$="[[required]]"
+            autocomplete$="[[autocomplete]]"
+            autofocus$="[[autofocus]]"
+            inputmode$="[[inputmode]]"
+            minlength$="[[minlength]]"
+            maxlength$="[[maxlength]]"
+            min$="[[min]]"
+            max$="[[max]]"
+            step$="[[step]]"
+            name$="[[name]]"
+            placeholder$="[[placeholder]]"
+            readonly$="[[readonly]]"
+            list$="[[list]]"
+            size$="[[size]]"
+            autocapitalize$="[[autocapitalize]]"
+            autocorrect$="[[autocorrect]]"
+            on-change="_onChange"
+            tabindex$="[[tabIndex]]"
+            autosave$="[[autosave]]"
+            results$="[[results]]"
+            accept$="[[accept]]"
+            multiple$="[[multiple]]">
+      </iron-input>
+
       <slot name="suffix" slot="suffix"></slot>
 
       <paper-button
@@ -87,7 +173,15 @@
         <iron-icon icon="[[stepUpIcon]]"></iron-icon>
       </paper-button>
 
-    </paper-input>
+      <template is="dom-if" if="[[errorMessage]]">
+        <paper-input-error aria-live="assertive" slot="add-on">[[errorMessage]]</paper-input-error>
+      </template>
+
+      <template is="dom-if" if="[[charCounter]]">
+        <paper-input-char-counter slot="add-on"></paper-input-char-counter>
+      </template>
+
+    </paper-input-container>
 
   </template>
   <script>
@@ -96,9 +190,10 @@
      * 
      * @customElement
      * @polymer
+     * @appliesMixin Polymer.PaperInputBehavior
      * @demo demo Sandbox snippet
      */
-    class PaperNumberInput extends Polymer.Element {
+    class PaperNumberInput extends Polymer.mixinBehaviors([Polymer.PaperInputBehavior], Polymer.Element) {
 
       static get is() {
         return 'paper-number-input';
@@ -106,108 +201,11 @@
 
       static get properties() {
         return {
-          /**
-          * The tabindex for this input.
-          */
-          tabIndex: Number,
-          /**
-          * The label for this input.
-          */
-          label: String,
-          /**
-          * The number that represents the current value.
-          */
-          value: {
-            type: Number,
-            notify: true
+          type: {
+            type: String,
+            value: 'number',
+            readonly: true
           },
-          /**
-          * Set to true to disable this input.
-          */
-          disabled: {
-            type: Boolean,
-            value: false
-          },
-          /**
-          * Returns true if the value is invalid.
-          *
-          * If `autoValidate` is true, the `invalid` attribute is managed automatically,
-          * which can clobber attempts to manage it manually.
-          */
-          invalid: {
-            type: Boolean,
-            value: false,
-            notify: true
-          },
-          /**
-          * Set to true to mark the input as required.
-          */
-          required: {
-            type: Boolean,
-            value: false
-          },
-          /**
-          * The error message to display when the input is invalid.
-          */
-          errorMessage: String,
-          /**
-          * Set to true to disable the floating label.
-          */
-          noLabelFloat: Boolean,
-          /**
-          * Set to true to always float the label.
-          */
-          alwaysFloatLabel: Boolean,
-          /**
-          * Set to true to auto-validate the input value.
-          */
-          autoValidate: {
-            type: Boolean,
-            value: false
-          },
-          /**
-          * Name of the validator to use.
-          */
-          validator: String,
-          /**
-          */
-          autofocus: Boolean,
-          /**
-          * The number that indicates the minimum value.
-          */
-          min: Number,
-          /**
-          * The number that indicates the maximum value.
-          */
-          max: Number,
-          /**
-          * The number that indicates the value increment granularity for
-          * stepUp and stepDown actions.
-          */
-          step: Number,
-          /**
-          * The name of this element.
-          */
-          name: String,
-          /**
-          * A placeholder string in addition to the label. If this is set, the label will always float.
-          */
-          placeholder: String,
-          /**
-          * If true, the value can't change due to user input.
-          */
-          readonly: {
-            type: Boolean,
-            value: false
-          },
-          /**
-          *
-          */
-          _ariaDescribedBy: String,
-          /**
-          *
-          */
-          _ariaLabelledBy: String,
           /**
           * Default fallback when value is not a number.
           */
@@ -234,8 +232,12 @@
         };
       }
 
-      get _input() {
-        return this.$.input._focusableElement;
+      /**
+      * Returns a reference to the focusable element. Overridden from PaperInputBehavior
+      * to correctly focus the native input.
+      */
+      get _focusableElement() {
+        return this.inputElement._inputElement;
       }
 
       setFallbackValue() {
@@ -247,16 +249,16 @@
        *
        */
       stepUp() {
-        this._input.stepUp();
-        this.value = this._input.value;
+        this.$.nativeInput.stepUp();
+        this.value = this.$.nativeInput.value;
       }
 
       /**
        *
        */
       stepDown() {
-        this._input.stepDown();
-        this.value = this._input.value;
+        this.$.nativeInput.stepDown();
+        this.value = this.$.nativeInput.value;
       }
 
       _computeStepDownButtonDisabled(value, min, disabled) {
@@ -268,7 +270,7 @@
       }
 
       _handleFocusout() {
-        if (!this._input.checkValidity()) {
+        if (!this.$.nativeInput.checkValidity()) {
           this.setFallbackValue();
         }
       }
