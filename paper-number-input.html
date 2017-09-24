@@ -63,7 +63,8 @@
         tabindex$="[[tabIndex]]"
         error-message="{{errorMessage}}"
         required="{{required}}"
-        auto-validate="[[autoValidate]]">
+        auto-validate="[[autoValidate]]"
+        on-focusout="_handleFocusout">
 
       <paper-button
           tabindex="-1"
@@ -239,6 +240,11 @@
         return this.$.input._focusableElement;
       }
 
+      setFallbackValue() {
+        if (this.fallbackValue === undefined) return;
+        this.value = this.fallbackValue;
+      }
+
       /**
        *
        */
@@ -261,6 +267,12 @@
 
       _computeStepUpButtonDisabled(value, max, disabled) {
         return disabled || parseFloat(value) >= parseFloat(max);
+      }
+
+      _handleFocusout() {
+        if (!this._input.checkValidity()) {
+          this.setFallbackValue();
+        }
       }
 
     }
