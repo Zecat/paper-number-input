@@ -256,11 +256,11 @@
       }
 
       _computeStepDownButtonDisabled(value, min, disabled) {
-        return disabled || value <= min;
+        return disabled || parseFloat(value) <= parseFloat(min);
       }
 
       _computeStepUpButtonDisabled(value, max, disabled) {
-        return disabled || value >= max;
+        return disabled || parseFloat(value) >= parseFloat(max);
       }
 
     }
