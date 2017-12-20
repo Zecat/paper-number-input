@@ -113,6 +113,14 @@
         @apply --paper-number-input-step-up-icon;
       }
 
+      #stepDownButton {
+        @apply --paper-number-input-step-down-button;
+      }
+
+      #stepUpButton {
+        @apply --paper-number-input-step-up-button;
+      }
+
     </style>
 
      <paper-input-container id="container"
@@ -123,6 +131,7 @@
         invalid="[[invalid]]">
 
       <paper-button
+          id="stepDownButton"
           tabindex="-1"
           class="spinner"
           slot="prefix"
@@ -175,6 +184,7 @@
       <slot name="suffix" slot="suffix"></slot>
 
       <paper-button
+          id="stepUpButton"
           tabindex="-1"
           class="spinner"
           slot="suffix"
