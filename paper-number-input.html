@@ -104,6 +104,15 @@
       label {
         pointer-events: none;
       }
+
+      #stepDownIcon {
+        @apply --paper-number-input-step-down-icon;
+      }
+
+      #stepUpIcon {
+        @apply --paper-number-input-step-up-icon;
+      }
+
     </style>
 
      <paper-input-container id="container"
@@ -119,7 +128,7 @@
           slot="prefix"
           on-tap="stepDown"
           disabled="[[_computeStepDownButtonDisabled(value, min, disabled)]]">
-        <iron-icon icon="[[stepDownIcon]]"></iron-icon>
+        <iron-icon id="stepDownIcon" icon="[[stepDownIcon]]"></iron-icon>
       </paper-button>
 
       <slot name="prefix" slot="prefix"></slot>
@@ -171,7 +180,7 @@
           slot="suffix"
           on-tap="stepUp"
           disabled="[[_computeStepUpButtonDisabled(value, max, disabled)]]">
-        <iron-icon icon="[[stepUpIcon]]"></iron-icon>
+        <iron-icon id="stepUpIcon" icon="[[stepUpIcon]]"></iron-icon>
       </paper-button>
 
       <template is="dom-if" if="[[errorMessage]]">
